@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-ink: #eef2f8;
+  --color-dim: #8b93a7;
+  --color-line: #1c2230;
+  --color-panel: #0b0e16;
+  --color-abyss: #05060b;
+  --color-signal: #2ab3ee;
+  --color-mint: #3ce6b0;
+  --color-amber: #f5b544;
+  --color-danger: #f0564f;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-abyss);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+}
+
+::selection {
+  background: rgba(42, 179, 238, 0.35);
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(139, 147, 167, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(139, 147, 167, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 80%);
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1.5px rgba(238, 242, 248, 0.28);
+  color: transparent;
+}
+
+.glow-signal {
+  box-shadow: 0 0 40px -8px rgba(42, 179, 238, 0.45);
+}
+
+.pulse-dot {
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.82); }
+}
+
+.fade-up {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.marquee {
+  animation: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #232b3d;
+  border-radius: 999px;
+}
